@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script> 
+
+// This will set the Quick2Cloud default menu to College or Shortcuts
+// The default will be College and the User will get that menu initially
+// Taking a link off the College Menu will get them the Shortcut menu 
+// Whatever the user picks it will be remembered for the life of the browser session
+
+// Load up all the cookies that have been created since the user started the session
+var cookies = document.cookie;
+ 
+// Look for the cookie that indicates the default menu should be the College  
+var z = cookies.indexOf("ckmenu=college");
+if (z >= 0 ) { location.replace("./selections30.ksp");}
+
+var z = cookies.indexOf("ckmenu=college2");
+if (z >= 0 ) { location.replace("./selections50.ksp");}
+
+// Look for the cookie that indicates the default menu should be the shortcuts
+var y = cookies.indexOf("ckmenu=shortcuts");
+if (y >= 0 ) { location.replace("./selections20.ksp");}
+
+//Look for the cookie that indicates the default menu should be the both then make it college
+var x = cookies.indexOf("ckmenu=both");
+if (x >= 0 ) { location.replace("./selections50.ksp");}
+
+
+
+// If neither were found that means the user has not yet decided.  Default them to College
+// A failed match above will return a -1 value.  If neither found then the sum will be -3
+if ( z + y + x == -3) { location.replace("./selections50.ksp");}
+
+</script>
+
+ </body>
+</html>	  
